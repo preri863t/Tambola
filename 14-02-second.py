@@ -1,8 +1,5 @@
 import random
 
-# ----------------------------
-# Generate Ticket
-# ----------------------------
 def generate_ticket():
     ticket = [[0 for _ in range(9)] for _ in range(3)]
 
@@ -19,10 +16,6 @@ def generate_ticket():
 
     return ticket
 
-
-# ----------------------------
-# Print Ticket
-# ----------------------------
 def print_ticket(ticket, marked):
     for i in range(3):
         for j in range(9):
@@ -35,10 +28,6 @@ def print_ticket(ticket, marked):
         print()
     print()
 
-
-# ----------------------------
-# Count Marked Numbers
-# ----------------------------
 def count_marked(ticket, marked):
     count = 0
     for i in range(3):
@@ -47,12 +36,8 @@ def count_marked(ticket, marked):
                 count += 1
     return count
 
-
-# ----------------------------
-# Main Game
-# ----------------------------
 def play_game():
-    print("🎉 Tambola - Early 5 🎉")
+    print("Tambola - Early 5")
 
     num_players = int(input("Enter number of players: "))
     players = []
@@ -89,7 +74,6 @@ def play_game():
 
         called_numbers.append(number)
 
-        # Check each player
         for idx, player in enumerate(players):
             ticket = player["ticket"]
             marked = player["marked"]
@@ -100,12 +84,10 @@ def play_game():
                         marked[i][j] = True
 
             if count_marked(ticket, marked) >= 5:
-                print(f"\n🏆 Player {idx+1} WINS EARLY 5!")
+                print(f"\nPlayer {idx+1} WINS EARLY 5!")
                 print("\nWinning Ticket:")
                 print_ticket(ticket, marked)
-                print("🎊 Game Over!")
+                print("Game Over!")
                 return
 
-
-# Start
 play_game()
